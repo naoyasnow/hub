@@ -31,13 +31,24 @@ c.addEventListener("pointerdown",e=>{pos(e);pt.down=true;const i=hit(pt.x,pt.y);
 c.addEventListener("pointerup",()=>pt.down=false);c.addEventListener("pointercancel",()=>pt.down=false);c.addEventListener("pointerleave",()=>{if(!pt.down){pt.active=false;pt.x=pt.y=-9999}});
 visit.onclick=()=>{if(selected>=0)window.open(nodes[selected].url,"_blank","noopener")};
 
-function physics(){const m=W<800;nodes.forEach((n,i)=>{n.phase+=.004;n.vx+=(n.hx-n.x)*.0015+Math.cos(n.phase+i)*.003;n.vy+=(n.hy-n.y)*.0015+Math.sin(n.phase+i)*.003;
+function physics(){const m=W<800;nodes.forEach((n,i)=>{n.phase+=.003;n.vx+=(n.hx-n.x)*.0015+Math.cos(n.phase+i)*.004;n.vy+=(n.hy-n.y)*.0015+Math.sin(n.phase+i)*.004;
 if(pt.active){const d=Math.hypot(pt.x-n.x,pt.y-n.y);if(d<190){const f=(1-d/190)*(m?.055:.025);n.vx-=(pt.x-pt.px)*f;n.vy-=(pt.y-pt.py)*f}}
 if(selected===i){n.vx+=(W*.56-n.x)*.0018;n.vy+=(H*.52-n.y)*.0018}n.vx*=.986;n.vy*=.986;n.x+=n.vx;n.y+=n.vy;
 const p=m?38:45;if(n.x<p){n.x=p;n.vx=Math.abs(n.vx)*.45}if(n.x>W-p){n.x=W-p;n.vx=-Math.abs(n.vx)*.45}if(n.y<70){n.y=70;n.vy=Math.abs(n.vy)*.45}if(n.y>H-p){n.y=H-p;n.vy=-Math.abs(n.vy)*.45}})}
 
 function draw(t){ctx.clearRect(0,0,W,H);
-for(let i=0;i<10;i++)for(let j=i+1;j<10;j++){const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<315){ctx.strokeStyle=`rgba(0,255,238,${(1-d/315)*.19})`;ctx.lineWidth=(selected===i||selected===j)?1.2:.65;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
+for(let i=0;i<10;i++)for(let j=i+1;j<10;j++){
+    const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<315){
+        const maxDist=W<800?315:420;
+        ctx.strokeStyle=`rgba(0,255,238,${(1-d/maxDist)*.19})`;
+        ctx.lineWidth=(selected===i||selected===j)?1.5:(W<800?.9:.7);
+        ctx.beginPath();
+        ctx.moveTo(a.x,a.y);ctx.
+        lineTo(b.x,b.y);
+        ctx.stroke()
+    }
+}
 nodes.forEach((n,i)=>{const d=Math.hypot(pt.x-n.x,pt.y-n.y),near=pt.active&&d<105,active=selected===i;
 if(active){for(let k=0;k<3;k++){const q=((t/9)+k*18)%70;ctx.beginPath();ctx.arc(n.x,n.y,42+q,0,Math.PI*2);ctx.strokeStyle=`rgba(0,255,238,${(1-q/70)*.18})`;ctx.stroke()}}
 if(near||active){ctx.beginPath();ctx.arc(n.x,n.y,active?62:52,0,Math.PI*2);ctx.fillStyle="rgba(0,255,238,.035)";ctx.fill();ctx.strokeStyle="rgba(0,255,238,.2)";ctx.stroke()}
