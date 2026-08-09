@@ -5,7 +5,7 @@ const socials=[
 {name:"Threads",meta:"CONVERSATIONS",url:"https://www.threads.com/@naoyasnow",slug:"threads",color:"ffffff"},
 {name:"mixi2",meta:"COMMUNITY",url:"https://mixi.social/@naoyasnow/portfolio",local:"mixi2"},
 {name:"YouTube",meta:"VIDEO / CREATE",url:"https://youtube.com/@naoyasnow",slug:"youtube",color:"FF0000"},
-{name:"Spotify",meta:"MUSIC / PLAYLISTS",url:"https://open.spotify.com/user/21xwjdippabfb7wfcpnnwsjqa",slug:"spotify",color:"1DB954"},
+{name:"Spotify",meta:"MUSIC / PODCAST",url:"https://open.spotify.com/user/21xwjdippabfb7wfcpnnwsjqa",slug:"spotify",color:"1DB954"},
 {name:"note",meta:"WORDS / IDEAS",url:"https://note.com/naoyasnow",local:"note"},
 {name:"GitHub",meta:"CODE / BUILD",url:"https://github.com/naoyasnow",slug:"github",color:"ffffff"},
 {name:"Discord",meta:"CHAT / TALK / GAME",url:"https://discord.gg/hnA6butP",slug:"discord",color:"5865F2"}];
@@ -16,7 +16,7 @@ socials.forEach((s,i)=>{const a=document.createElement("a");a.className="card";a
 
 const c=document.querySelector("#network"),ctx=c.getContext("2d"),popup=document.querySelector("#popup"),pi=document.querySelector("#popupIcon"),pn=document.querySelector("#popupName"),pm=document.querySelector("#popupMeta"),visit=document.querySelector("#visit");
 let W,H,dpr,nodes=[],selected=-1,pt={x:-9999,y:-9999,px:-9999,py:-9999,active:false,down:false};
-const acid="#d7ff3f",fg="#f2f1ed",bg="#090a0c";
+const acid="#00ffee",fg="#f2f1ed",bg="#090a0c";
 
 function resize(){dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);if(nodes.length)return;
 const m=W<800,cx=W*(m?.58:.64),cy=H*(m?.52:.53),rx=Math.min(W,H)*(m?.36:.29),ry=Math.min(W,H)*(m?.32:.34);
