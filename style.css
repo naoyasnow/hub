@@ -20,8 +20,8 @@
     min-width:370px;
     padding:14px;
     background:rgba(9,10,12,.92);
-    border:1px solid rgba(215,255,63,.45);
-    box-shadow:0 0 45px rgba(215,255,63,.08);
+    border:1px solid rgba(0,255,238,.45);
+    box-shadow:0 0 45px rgba(0,255,238,.08);
     backdrop-filter:blur(10px);
     transition:.25s
 }

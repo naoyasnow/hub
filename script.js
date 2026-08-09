@@ -37,10 +37,10 @@ if(selected===i){n.vx+=(W*.56-n.x)*.0018;n.vy+=(H*.52-n.y)*.0018}n.vx*=.986;n.vy
 const p=m?38:45;if(n.x<p){n.x=p;n.vx=Math.abs(n.vx)*.45}if(n.x>W-p){n.x=W-p;n.vx=-Math.abs(n.vx)*.45}if(n.y<70){n.y=70;n.vy=Math.abs(n.vy)*.45}if(n.y>H-p){n.y=H-p;n.vy=-Math.abs(n.vy)*.45}})}
 
 function draw(t){ctx.clearRect(0,0,W,H);
-for(let i=0;i<10;i++)for(let j=i+1;j<10;j++){const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<315){ctx.strokeStyle=`rgba(215,255,63,${(1-d/315)*.19})`;ctx.lineWidth=(selected===i||selected===j)?1.2:.65;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
+for(let i=0;i<10;i++)for(let j=i+1;j<10;j++){const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<315){ctx.strokeStyle=`rgba(0,255,238,${(1-d/315)*.19})`;ctx.lineWidth=(selected===i||selected===j)?1.2:.65;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
 nodes.forEach((n,i)=>{const d=Math.hypot(pt.x-n.x,pt.y-n.y),near=pt.active&&d<105,active=selected===i;
-if(active){for(let k=0;k<3;k++){const q=((t/9)+k*18)%70;ctx.beginPath();ctx.arc(n.x,n.y,42+q,0,Math.PI*2);ctx.strokeStyle=`rgba(215,255,63,${(1-q/70)*.18})`;ctx.stroke()}}
-if(near||active){ctx.beginPath();ctx.arc(n.x,n.y,active?62:52,0,Math.PI*2);ctx.fillStyle="rgba(215,255,63,.035)";ctx.fill();ctx.strokeStyle="rgba(215,255,63,.2)";ctx.stroke()}
+if(active){for(let k=0;k<3;k++){const q=((t/9)+k*18)%70;ctx.beginPath();ctx.arc(n.x,n.y,42+q,0,Math.PI*2);ctx.strokeStyle=`rgba(0,255,238,${(1-q/70)*.18})`;ctx.stroke()}}
+if(near||active){ctx.beginPath();ctx.arc(n.x,n.y,active?62:52,0,Math.PI*2);ctx.fillStyle="rgba(0,255,238,.035)";ctx.fill();ctx.strokeStyle="rgba(0,255,238,.2)";ctx.stroke()}
 const r=active?43:near?34:29;ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fillStyle="rgba(9,10,12,.8)";ctx.fill();ctx.strokeStyle=active||near?acid:"rgba(242,241,237,.48)";ctx.lineWidth=active?1.8:1;ctx.stroke();
 if(n.image.complete){const s=active?46:near?37:31;ctx.drawImage(n.image,n.x-s/2,n.y-s/2,s,s)}
 if(near||active){ctx.font='500 12px "DM Mono"';ctx.textAlign="center";ctx.textBaseline="top";ctx.fillStyle=acid;ctx.fillText(n.name,n.x,n.y+r+9)}});requestAnimationFrame(draw)}
