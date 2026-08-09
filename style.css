@@ -1,4 +1,4 @@
-:root{--bg:#090a0c;--fg:#f2f1ed;--muted:#85878b;--line:#26282c;--acid:#d7ff3f}
+:root{--bg:#090a0c;--fg:#f2f1ed;--muted:#85878b;--line:#26282c;--acid:#00ffee}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,sans-serif}body{overflow-x:hidden}.noise{position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .topbar{position:fixed;z-index:30;top:0;left:0;right:0;padding:23px 32px;display:flex;justify-content:space-between;font:500 17px "DM Mono";letter-spacing:.08em;mix-blend-mode:difference}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--acid);margin-right:9px}
 .hero{height:100svh;min-height:700px;position:relative;overflow:hidden;padding:14vh 6vw 7vh}.copy{position:relative;z-index:3;pointer-events:none}.eyebrow,
