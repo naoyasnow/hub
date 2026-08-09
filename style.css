@@ -31,12 +31,15 @@
 #popup strong{display:block;font-size:20px}
 #popup small{display:block;margin-top:4px;color:var(--muted);font:12px "DM Mono"}
 #visit{height:48px;border:0;background:var(--acid);color:var(--bg);padding:0 16px;font:500 12px "DM Mono";cursor:pointer}
-.links{padding:6vw}.head{display:flex;justify-content:space-between;color:var(--muted);padding-bottom:22px;border-bottom:1px solid var(--line)}#list{display:grid;grid-template-columns:1fr 1fr}.card{position:relative;min-height:210px;padding:34px 36px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);color:var(--fg);text-decoration:none;transition:.3s}.card:nth-child(even){border-right:0}.card:hover{background:var(--acid);color:var(--bg);transform:translateY(-3px);z-index:2}.num{font:500 17px "DM Mono";opacity:.5}.name{display:block;margin-top:28px;font-size:42px;letter-spacing:-.05em}.meta{display:block;margin-top:9px;font:16px "DM Mono";opacity:.55}.icon{position:absolute;right:34px;top:34px;width:58px;height:58px;display:grid;place-items:center}.icon img{max-width:54px;max-height:54px}.card:after{content:"↗";position:absolute;right:39px;bottom:34px;font-size:26px}.card:hover:after{transform:translate(5px,-5px)}footer{display:flex;justify-content:space-between;color:var(--muted);padding-top:30px}
+.links{padding:6vw}
+.head{display:flex;justify-content:space-between;color:var(--muted);padding-bottom:22px;border-bottom:1px solid var(--line)}#list{display:grid;grid-template-columns:1fr 1fr}.card{position:relative;min-height:210px;padding:34px 36px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);color:var(--fg);text-decoration:none;transition:.3s}.card:nth-child(even){border-right:0}.card:hover{background:var(--acid);color:var(--bg);transform:translateY(-3px);z-index:2}.num{font:500 17px "DM Mono";opacity:.5}.name{display:block;margin-top:28px;font-size:42px;letter-spacing:-.05em}.meta{display:block;margin-top:9px;font:16px "DM Mono";opacity:.55}.icon{position:absolute;right:34px;top:34px;width:58px;height:58px;display:grid;place-items:center}.icon img{max-width:54px;max-height:54px}.card:after{content:"↗";position:absolute;right:39px;bottom:34px;font-size:26px}.card:hover:after{transform:translate(5px,-5px)}footer{display:flex;justify-content:space-between;color:var(--muted);padding-top:30px}
 
 @media(max-width:800px){
     .topbar{padding:18px 20px;font-size:12px}
     .hero{min-height:100svh;height:100svh;padding:15vh 20px 0}
-    .copy{height:33vh}
+    .copy{height:25vh;
+        transform:translateY(-3vh);
+      }
     .eyebrow{font-size:12px;margin-bottom:25px}h1{font-size:clamp(65px,19vw,118px)}
     .copy>p:last-child{font-size:15px;margin-top:27px}
     .stage{inset:12% 0 0}
